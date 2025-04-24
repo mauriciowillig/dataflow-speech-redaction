@@ -68,7 +68,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \ --member="serviceAccount:
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \ --member="serviceAccount:${GCE_SERVICE_ACCOUNT}" \ --role="roles/run.invoker"
 ```
 
-#### 1. Add **roles/pubsub.publisher** to GCS Service account (Google Storage Service Agent)
+#### 2. Add **roles/pubsub.publisher** to GCS Service account (Google Storage Service Agent)
 
 ```gcloud``` commands:
 
@@ -170,7 +170,7 @@ pip3 install apache-beam[gcp]
 
 Please wait as it might take a few minutes to complete.
 
-You can provide an existing [INSPECT_TEMPLATE_ID] if you already have an DLP Inspection template created or refer to [Optional: DLP inspection template creation](#template-creation) to create a new one.
+You can provide an existing [INSPECT_TEMPLATE_ID] if you already have an DLP Inspection template created or refer to section [Optional: DLP inspection template creation] to create a new one.
 
 ``` shell
 python3 srflongrunjobdataflow.py --project=[YOUR_PROJECT_ID] --input_topic=projects/[YOUR_PROJECT_ID]/topics/[YOUR_TOPIC_NAME] --runner=DataflowRunner --temp_location=gs://[YOUR_DATAFLOW_STAGING_BUCKET]/tmp --output=[YOUR_DLP_FINDINGS_BUCKET] --region=[GOOGLE_CLOUD_REGION] --requirements_file="requirements.txt"
