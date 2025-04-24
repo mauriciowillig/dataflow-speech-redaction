@@ -30,7 +30,7 @@ The process follows:
 
 Grant the necessary IAM roles either through the Google Cloud Console or by using the ```gcloud``` commands provided below.
 
-Add the following roles to Compute Engine default service account (PROJECT_NUMBER-compute@developer.gserviceaccount.com):
+#### 1. Add the following roles to Compute Engine default service account (PROJECT_NUMBER-compute@developer.gserviceaccount.com):
 
 - Eventarc Event Receiver role
 - Cloud Speech-to-Text Service Agent
@@ -68,7 +68,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \ --member="serviceAccount:
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \ --member="serviceAccount:${GCE_SERVICE_ACCOUNT}" \ --role="roles/run.invoker"
 ```
 
-Add **roles/pubsub.publisher** to GCS Service account (Google Storage Service Agent)
+#### 1. Add **roles/pubsub.publisher** to GCS Service account (Google Storage Service Agent)
 
 ```gcloud``` commands:
 
@@ -158,10 +158,11 @@ gcloud functions deploy srfRedactionFunc --region=<REGION> --stage-bucket=[YOUR_
 
 #### 13. Deploy the Cloud Dataflow Pipeline
 
-* ```python3 --version Python 3.7.8```
-* In the cloned repo, go to `srf-longrun-job-dataflow` directory and deploy the Cloud Dataflow Pipeline. Run the commands below to deploy the dataflow job.
+In the cloned repo, go to `srf-longrun-job-dataflow` directory and deploy the Cloud Dataflow Pipeline. Run the commands below to deploy the dataflow job:
 ``` shell
 # MacOS/Linux
+# python3 --version Python 3.7.8
+
 python3 -m venv env
 source env/bin/activate
 pip3 install apache-beam[gcp]
@@ -218,7 +219,7 @@ gcloud iam service-accounts keys create ${KEY_FILE_PATH} \ --iam-account=${SA_EM
 A JSON file containing the service account's private key will be downloaded to your computer.
 > **⚠ Important:** Store this file securely. Anyone with this file can access your Google Cloud resources as the service account.
 
-Export the key in json format, place the sa json and the inspect template in the same path where will run the template script creation.
+Export the key in json format, place the SA json and the inspect template in the same path where will run the template script creation.
 
 #### 4. Run the script with the following command:
 
