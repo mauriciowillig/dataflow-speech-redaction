@@ -135,7 +135,7 @@ gcloud services enable dlp.googleapis.com
 
 In the cloned repo, go to the `srf-audio-process-func` directory and deploy the following Cloud Function.
 
-> **⚠ NOTE**: On line 29 in `index.js` file, add your TOPIC_NAME you created in step 7.
+> **⚠ NOTE**: On line 29 of the `index.js` file, add your TOPIC_NAME you created in step 7.
 
 > **⚠ NOTE**: Region must be the same as the Uploaded Audio Files bucket.
 
@@ -148,7 +148,7 @@ gcloud functions deploy srfAudioProcessFunc --region=<REGION> --stage-bucket=[YO
 
 In the cloned repo, go to the `srf-redaction-func` directory and deploy the following Cloud Function.
 
-> **⚠ NOTE**: Before deploying the redact function, on line 19 in `index.js` file, add your **Redacted Audio Files** bucket name.
+> **⚠ NOTE**: Before deploying the redact function, on line 19 of the `index.js` file, add your **Redacted Audio Files** bucket name.
 
 ``` shell
 gcloud functions deploy srfRedactionFunc --region=<REGION> --stage-bucket=[YOUR_UPLOADED_AUDIO_FILES_BUCKET_NAME] --runtime=nodejs20 --trigger-bucket=[YOUR_DLP_BUCKET_BUCKET_NAME]
