@@ -182,6 +182,8 @@ Once the steps are completed above, upload your audio files to the **Uploaded Au
 
 To create a DLP Inspection template, you can utilize the `create_template.py` Python script. This script requires Service Account impersonation, necessitating the creation of a new service account or the provision of existing service account keys in JSON format.
 
+Before running the script, modify `inspect_template_congig.json` file to specify [built-in infoTypes](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference) and [custom infoTypes](https://cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-dictionary) accordingly to your business needs. 
+
 #### 1. Create a service account with the following permissions:
 - DLP Administrator
 - DLP Inspect Templates Editor
